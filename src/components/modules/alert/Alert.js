@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export default function Alert() {
     return (
-        <div className=' flex justify-between items-center gap-5 p-4 rounded-xl bg-zinc-900 '>
+        <div className=' flex justify-center items-center gap-3 p-4 md:rounded-xl bg-zinc-900 '>
             <Image
                 alt='success-icon'
                 src='/images/png/success.png'

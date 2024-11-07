@@ -25,7 +25,7 @@ export default function OtpForm({ otp, setOtp, error }) {
                 {
                     otp.map((data, i) => (
                         <input
-                        key={i}
+                            key={i}
                             type="text"
                             value={data}
                             maxLength={1}
@@ -36,11 +36,7 @@ export default function OtpForm({ otp, setOtp, error }) {
                     ))
                 }
             </div>
-            {
-                error ? (
-                    <p className=" text-center text-red-500">{error}</p>
-                ) : null
-            }
+            <p className={`${error ? " opacity-100 visible" : "opacity-0 invisible"} text-center text-red-500 transition-all duration-300`}>{error}</p>
         </div>
     )
 }

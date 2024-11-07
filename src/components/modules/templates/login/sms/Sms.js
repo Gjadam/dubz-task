@@ -57,7 +57,7 @@ export default function Sms({ phone }) {
                 <Button isSubmitType={true} text="Continue" isFullWidth={true} />
             </div>
         </form>
-            <div className={`fixed left-8 top-8 sm:bottom-8 ${openAlertBox ? "opacity-100" : "opacity-0"} transition-all duration-300`}>
+            <div className={`fixed left-0 md:left-8 top-8 md:top-auto md:bottom-8 w-full md:w-auto ${openAlertBox ? "opacity-100" : "opacity-0"} transition-all duration-300`}>
                 <Alert/>
             </div>
         </>

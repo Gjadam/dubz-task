@@ -7,10 +7,24 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      width: {
+        120: "30rem"
       },
+      height: {
+        120: "30rem"
+      },
+      borderColor: {
+        primary: "#D8DADC"
+      },
+      fontSize: {
+        '8': "2rem"
+      },
+      fontFamily: {
+        poppins: ["Poppins"],
+      },
+      borderRadius: {
+        '2.5': '0.625rem',
+      }
     },
   },
   plugins: [],

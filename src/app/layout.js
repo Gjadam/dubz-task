@@ -1,16 +1,10 @@
-import localFont from "next/font/local";
+import { Inter } from 'next/font/google'
+ 
+// If loading a variable font, you don't need to specify the font weight
+const inter = Inter({ subsets: ['latin'] })
+
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 
 export const metadata = {
   title: "Create Next App",
@@ -21,9 +15,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.className} sm:bg-[#1c1c1c] h-screen sm:p-5 transition-all duration-300`}
       >
-        {children}
+        <div className=" flex justify-center items-center bg-white w-full h-full p-5 rounded-2.5">
+          {children}
+        </div>
       </body>
     </html>
   );

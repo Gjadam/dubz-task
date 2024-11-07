@@ -28,7 +28,7 @@ export default function FormInput({ name, error, value, onChange, onBlur }) {
                     className="w-full px-2 text-zinc-500 placeholder:text-zinc-500 outline-none"  
                 />  
             </div>  
-            <p className={`${error ? " opacity-100 visible" : "opacity-0 invisible"}text-center text-red-500 transition-all duration-300`}>{error}</p>
+            <p className={`${error ? " opacity-100 visible" : "opacity-0 invisible"} text-center text-red-500 transition-all duration-300`}>{error}</p>
         </>  
     );  
 }

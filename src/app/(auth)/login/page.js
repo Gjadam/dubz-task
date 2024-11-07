@@ -33,7 +33,7 @@ export default function Login() {
             phone: ""
         },
         validate,
-        onSubmit: (value) => {
+        onSubmit: () => {
             setIsLoginWithOtp(true)
         }
     })

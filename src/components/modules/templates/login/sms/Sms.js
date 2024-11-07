@@ -46,7 +46,7 @@ export default function Sms({ phone }) {
         <>
         <form data-aos="fade"  className=' h-full flex flex-col justify-between' onSubmit={form.handleSubmit}>
             <div className="flex flex-col gap-10" >
-                <HeaderTitle title="enter code" text={`We’ve sent an SMS with an activation code to your phone +98 ${phone}`} />
+                <HeaderTitle title="enter code" text={`We’ve sent an SMS with an activation code to your phone`} phone={phone} />
                 <OtpInput otp={otp} setOtp={setOtp} error={form.errors.code} value={form.values.code} onChange={form.handleChange} onBlur={form.handleBlur} />
             </div>
             <div className=" flex flex-col gap-5">
@@ -57,7 +57,7 @@ export default function Sms({ phone }) {
                 <Button isSubmitType={true} text="Continue" isFullWidth={true} />
             </div>
         </form>
-            <div className={`fixed left-8 bottom-8 ${openAlertBox ? "opacity-100" : "opacity-0"} transition-all duration-300`}>
+            <div className={`fixed left-8 top-8 sm:bottom-8 ${openAlertBox ? "opacity-100" : "opacity-0"} transition-all duration-300`}>
                 <Alert/>
             </div>
         </>

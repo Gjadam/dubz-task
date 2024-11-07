@@ -6,9 +6,9 @@ const formatNumberWithSpaces  = (input) => {
 
 
 const validatePhone = (phone) => {
-    // Change format numbers to regular number for validate
+    // Change format numbers to regular numbers for validate
     const cleaned = phone.replace(/\D/g, '');
-    const changeToNumber = cleaned ? parseInt(cleaned, 10) : null; // اگر خالی نبود، به عدد تبدیل کن
+    const changeToNumber = cleaned ? parseInt(cleaned, 10) : null; 
 
     const pattern = /^9\d{9}$/;
     return pattern.test(changeToNumber)

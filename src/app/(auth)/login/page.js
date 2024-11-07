@@ -6,7 +6,7 @@ import Button from '@/components/modules/button/Button'
 import PhoneInput from '@/components/modules/formInputs/phoneInput/PhoneInput'
 import HeaderTitle from '@/components/modules/headerTitle/HeaderTitle'
 import SyncContacts from '@/components/modules/syncContacts/SyncContacts'
-import Sms from '@/components/modules/templates/login/sms/Sms'
+import Sms from '@/components/templates/login/sms/Sms'
 
 // Validation
 import { validatePhone } from '../../../../utils/auth'

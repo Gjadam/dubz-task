@@ -1,6 +1,6 @@
 'use client'
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // Components
 import Alert from "@/components/modules/alert/Alert";
@@ -15,12 +15,25 @@ export default function Sms({ phone }) {
 
     const [otp, setOtp] = useState(new Array(5).fill(""))
     const [openAlertBox, setOpenAlertBox] = useState(false)
-
+    const [counter, setCounter] = useState(20)
     const router = useRouter()
 
-    const validate = values => {
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            setCounter(prevCount => {
+                if (prevCount <= 1) {
+                    clearInterval(intervalId);
+                    return 0;
+                }
+                return prevCount - 1;
+            });
+        }, 1000);
+        return () => clearInterval(intervalId);
+    }, []);
+
+    const validate = () => {
         const errors = {};
-        if(otp.join("") !== "12345") {
+        if (otp.join("") !== "12345") {
             errors.code = "Wrong code, please try again";
         }
         return errors
@@ -34,8 +47,8 @@ export default function Sms({ phone }) {
         onSubmit: () => {
             setOpenAlertBox(true)
             setTimeout(() => {
-            setOpenAlertBox(false)
-            router.replace('/')
+                setOpenAlertBox(false)
+                router.replace('/')
             }, 3000);
             setOtp(new Array(5).fill(""))
         }
@@ -44,21 +57,21 @@ export default function Sms({ phone }) {
 
     return (
         <>
-        <form data-aos="fade"  className=' h-full flex flex-col justify-between' onSubmit={form.handleSubmit}>
-            <div className="flex flex-col gap-10" >
-                <HeaderTitle title="enter code" text={`We’ve sent an SMS with an activation code to your phone`} phone={phone} />
-                <OtpInput otp={otp} setOtp={setOtp} error={form.errors.code} value={form.values.code} onChange={form.handleChange} onBlur={form.handleBlur} />
-            </div>
-            <div className=" flex flex-col gap-5">
-                <div className=" flex justify-center items-center gap-2 text-zinc-600">
-                    <div className=" font-semibold ">Send code again</div>
-                    <span>00:20</span>
+            <form data-aos="fade" className=' h-full flex flex-col justify-between' onSubmit={form.handleSubmit}>
+                <div className="flex flex-col gap-10" >
+                    <HeaderTitle title="enter code" text={`We’ve sent an SMS with an activation code to your phone`} phone={phone} />
+                    <OtpInput otp={otp} setOtp={setOtp} error={form.errors.code} value={form.values.code} onChange={form.handleChange} onBlur={form.handleBlur} />
                 </div>
-                <Button isSubmitType={true} text="Continue" isFullWidth={true} />
-            </div>
-        </form>
+                <div className=" flex flex-col gap-5">
+                    <div className=" flex justify-center items-center gap-2 text-zinc-600">
+                        <div className=" font-semibold cursor-pointer">Send code again</div>
+                        <span>00:{counter < 10 ? `0${counter}` : counter}</span>
+                    </div>
+                    <Button isSubmitType={true} text="Continue" isFullWidth={true} />
+                </div>
+            </form>
             <div className={`fixed left-0 md:left-8 top-8 md:top-auto md:bottom-8 w-full md:w-auto ${openAlertBox ? "opacity-100" : "opacity-0"} transition-all duration-300`}>
-                <Alert/>
+                <Alert />
             </div>
         </>
     )

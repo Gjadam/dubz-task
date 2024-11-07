@@ -1,11 +1,13 @@
+import Image from "next/image";
+
+// Components
 import Button from "@/components/modules/button/Button";
 import HeaderTitle from "@/components/modules/headerTitle/HeaderTitle";
-import Image from "next/image";
 
 export default function Home() {
   return (
 
-    <div className=" flex justify-between items-center flex-col gap-5  h-120 w-full md:w-120 text-center">
+    <div data-aos="fade" className=" flex justify-between items-center flex-col gap-5  h-120 w-full md:w-120 text-center">
       <Image
         alt="stars"
         src='/images/png/stars.png'

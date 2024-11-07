@@ -1,8 +1,4 @@
-'use client'
-
 export default function OtpForm({ otp, setOtp, error }) {
-
-console.log(error);
 
 
     function otpOnchange(e, index) {
@@ -32,7 +28,7 @@ console.log(error);
                             type="text"
                             value={data}
                             maxLength={1}
-                            className={` outline-none border  ${error ? 'border-red-500' : "border-primary"}  rounded-2xl  focus:border-black  transition-all duration-300  w-16 h-[4.5rem]  text-3xl text-center`}
+                            className={` outline-none border  ${error ? 'border-red-500' : "border-primary"}  rounded-2xl  focus:border-black  transition-all duration-300 w-12 h-14  sm:w-16 sm:h-[4.5rem]  text-3xl text-center`}
                             onChange={(e) => otpOnchange(e, i)}
                             onKeyUp={otpBackSpace}
                         />

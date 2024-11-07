@@ -25,6 +25,7 @@ export default function OtpForm({ otp, setOtp, error }) {
                 {
                     otp.map((data, i) => (
                         <input
+                        key={i}
                             type="text"
                             value={data}
                             maxLength={1}
